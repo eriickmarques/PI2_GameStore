@@ -5,6 +5,8 @@
  */
 package com.gamestore.main;
 
+import com.gamestore.interfaces.IncluirCliente;
+
 /**
  *
  * @author Roger
@@ -27,36 +29,68 @@ public class GameStore extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        incluirCliente1 = new com.gamestore.interfaces.IncluirCliente();
+        backgroundPanel = new javax.swing.JPanel();
+        buttonsPanel = new javax.swing.JPanel();
+        botaoCadastroClientes = new javax.swing.JButton();
+        botaoCadastroProdutos = new javax.swing.JButton();
+        botaoVendas = new javax.swing.JButton();
+        botaoRelatorios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Game Store");
+        setAlwaysOnTop(true);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 
-        jPanel1.setLayout(new java.awt.CardLayout());
+        backgroundPanel.setBackground(new java.awt.Color(204, 202, 255));
+        backgroundPanel.setLayout(new java.awt.GridBagLayout());
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        buttonsPanel.setPreferredSize(new java.awt.Dimension(600, 300));
+        buttonsPanel.setLayout(new java.awt.GridLayout());
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        botaoCadastroClientes.setText("CLIENTES");
+        botaoCadastroClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCadastroClientesActionPerformed(evt);
+            }
+        });
+        buttonsPanel.add(botaoCadastroClientes);
 
-        setJMenuBar(jMenuBar1);
+        botaoCadastroProdutos.setText("PRODUTOS");
+        buttonsPanel.add(botaoCadastroProdutos);
+
+        botaoVendas.setText("VENDAS");
+        buttonsPanel.add(botaoVendas);
+
+        botaoRelatorios.setText("RELATÓRIOS");
+        buttonsPanel.add(botaoRelatorios);
+
+        backgroundPanel.add(buttonsPanel, new java.awt.GridBagConstraints());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botaoCadastroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroClientesActionPerformed
+        buttonsPanel.setVisible(false);
+        
+        javax.swing.JPanel cliente = new IncluirCliente();
+        
+        backgroundPanel.add(cliente);
+        
+        cliente.setVisible(true);
+    }//GEN-LAST:event_botaoCadastroClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,9 +128,12 @@ public class GameStore extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel backgroundPanel;
+    private javax.swing.JButton botaoCadastroClientes;
+    private javax.swing.JButton botaoCadastroProdutos;
+    private javax.swing.JButton botaoRelatorios;
+    private javax.swing.JButton botaoVendas;
+    private javax.swing.JPanel buttonsPanel;
+    private com.gamestore.interfaces.IncluirCliente incluirCliente1;
     // End of variables declaration//GEN-END:variables
 }
